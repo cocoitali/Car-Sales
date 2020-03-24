@@ -1,5 +1,5 @@
 export const ADD_CAR = 'ADD_CAR'
-export const REMOVE_CAR = 'REMOVE_CAR'
+export const REMOVE_FEATURE = 'REMOVE_FEATURE'
 
 export const addCar = car => {
     return {
@@ -11,9 +11,9 @@ export const addCar = car => {
     }
 }
 
-export const removeCar = car => {
+export const removeFeature = feature => {
     return {
-    type: REMOVE_CAR,
-    payload: car,
+    type: REMOVE_FEATURE,
+    payload: feature,
     }
 }

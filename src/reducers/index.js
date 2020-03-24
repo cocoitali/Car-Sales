@@ -1,4 +1,4 @@
-import { ADD_CAR, REMOVE_CAR } from '../actions'
+import { ADD_CAR, REMOVE_FEATURE } from '../actions'
 
 const initialState = {
 	additionalPrice: 0,
@@ -24,10 +24,10 @@ export default (state = initialState, action) => {
 				...state,
 				car: action.payload
 			}
-		case REMOVE_CAR:
+		case REMOVE_FEATURE:
 			return {
 				...state,
-				car: action.payload
+				additionalFeatures: [action.payload]
 			}
 		default:
 			return state
