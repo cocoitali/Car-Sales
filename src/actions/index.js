@@ -1,13 +1,10 @@
-export const ADD_CAR = 'ADD_CAR'
+export const BUY_ITEM = 'BUY_ITEM'
 export const REMOVE_FEATURE = 'REMOVE_FEATURE'
 
-export const addCar = car => {
+export const buyItem = item => {
     return {
-        type: ADD_CAR,
-        payload: {
-            value: car,
-            completed: false,
-        }
+        type: BUY_ITEM,
+        payload: item
     }
 }
 
