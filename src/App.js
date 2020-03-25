@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import Header from './components/Header'
 import AddedFeatures from './components/AddedFeatures'
 import AdditionalFeatures from './components/AdditionalFeatures'
 import Total from './components/Total'
 
+import { buyItem } from './actions/index'
+
 const App = props => {
   console.log(props)
-	const [appState, setAppState] = useState()
+	// const [appState, setAppState] = useState()
 	// const state = {
 	//   additionalPrice: 0,
 	//   car: {
@@ -26,26 +28,22 @@ const App = props => {
 	// };
 
 	const removeFeature = item => {
-		// dispatch an action here to remove an item
-		item.preventDefault()
-		this.props.removeFeature(props.car.features)
-	}
-
-	const buyItem = item => {
-		// dipsatch an action here to add an item
-		item.preventDefault()
-		this.props.buyItem(props.additionalFeatures)
-	}
+		props.removeFeature(item)
+  }
+  
+  const buyItem = item => {
+    props.buyItem(item)
+  }
 
 	return (
 		<div className='boxes'>
 			<div className='box'>
 				<Header car={props.car} />
-				<AddedFeatures car={props.car} removeFeature={removeFeature} />
+				<AddedFeatures car={props.car} removeFeature={props.removeFeature} />
 			</div>
 			<div className='box'>
 				<AdditionalFeatures
-					buyItem={buyItem}
+					buyItem={props.buyItem}
 					additionalFeatures={props.additionalFeatures}
 				/>
 				<Total car={props.car} additionalPrice={props.additionalPrice} />
@@ -61,5 +59,12 @@ const mapStateToProps = state => {
     additionalPrice: state.additionalPrice
 	}
 }
+//destructered, shorter version
+// const mapStateToProps = ({car, additionalFeatures, additionalPrice}) => ({
+//     car,
+//     additionalFeatures,
+//     additionalPrice
+// })
 
-export default connect(mapStateToProps, {})(App) //function currying
+export default connect(mapStateToProps, {buyItem})(App) //function currying
+

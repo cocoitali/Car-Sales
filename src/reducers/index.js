@@ -22,7 +22,7 @@ const initialState = {
 		case BUY_ITEM:
 			return {
 				...state,
-				additionalFeatures: action.payload
+				additionalFeatures:[...state.additionalFeatures, action.payload]
 			}
 		case REMOVE_FEATURE:
 			return {
