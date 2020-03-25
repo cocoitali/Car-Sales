@@ -17,19 +17,21 @@ const initialState = {
 	]
 }
 
-export default (state = initialState, action) => {
+ const reducer = (state = initialState, action) => {
 	switch (action.type) {
 		case BUY_ITEM:
 			return {
 				...state,
-				features: [...state.features,action.payload]
+				additionalFeatures: action.payload
 			}
 		case REMOVE_FEATURE:
 			return {
 				...state,
-				additionalFeatures: [...state.additionalFeatures,action.payload]
+				features:  action.payload
 			}
 		default:
 			return state
 	}
 }
+
+export default reducer;
