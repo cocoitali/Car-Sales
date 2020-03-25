@@ -5,7 +5,7 @@ import AddedFeatures from './components/AddedFeatures'
 import AdditionalFeatures from './components/AdditionalFeatures'
 import Total from './components/Total'
 
-import { buyItem } from './actions/index'
+import { buyItem, removeFeature } from './actions/index'
 
 const App = props => {
   console.log(props)
@@ -66,5 +66,5 @@ const mapStateToProps = state => {
 //     additionalPrice
 // })
 
-export default connect(mapStateToProps, {buyItem})(App) //function currying
+export default connect(mapStateToProps, {buyItem, removeFeature})(App) //function currying
 
